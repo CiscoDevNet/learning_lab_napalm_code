@@ -1,0 +1,15 @@
+---
+- get_facts:
+    os_version: 6.1.4
+
+- get_interfaces_ip:
+    TenGigE0/0/0/0:
+        ipv4
+
+- get_bgp_neighbors:
+    global:
+        peers
+
+- get_bgp_config:
+    bgp_neighbors:
+        local_address
