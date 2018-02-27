@@ -1,6 +1,15 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+##############################################################
+# Learning Module: Introducation to Napalm
+# Author: Stuart Clark <stuaclar@cisco.com>
 #
 #
+# Allows you to get router ports and errors from an IOS-XR device
+# python get_facts.py -ip [ip address]
+##############################################################
+
+
 from napalm_base import get_network_driver
 from prettytable import PrettyTable
 from datetime import datetime
@@ -25,18 +34,8 @@ device = driver(username='cisco',
                 hostname=device_ip)
 
 
-# driver = get_network_driver('iosxr')
-# device = driver(hostname='10.4.37.15', username='cisco',
-#              password='cisco')
 device.open()
-
-
-# print help(device)
-# interfaces_counters = device.get_interfaces_counters()
-# print interfaces_counters
-# interfaces = device.get_interfaces()
-# print interfaces
-
+print 'Napalm Is Running........'
 
 interfaces_counters = device.get_interfaces_counters()
 interfaces = device.get_interfaces()

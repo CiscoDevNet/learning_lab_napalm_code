@@ -1,7 +1,14 @@
-'''
-- Allows you to get router methods from an IOS-XR device
-- python get_facts.py -ip [ip address]
-'''
+#!/usr/bin/env python
+
+##############################################################
+# Learning Module: Introducation to Napalm
+# Author: Stuart Clark <stuaclar@cisco.com>
+#
+#
+# Allows you to fetch the 'getters' from an IOS-XR device
+# python get_facts.py -ip [ip address]
+##############################################################
+
 import json
 from napalm_base import get_network_driver
 import argparse
@@ -20,6 +27,7 @@ device = driver(username='vagrant',
                 hostname=device_ip)
 
 device.open()
+print 'Napalm Is Running........'
 get_method = dir(device)
 
 

@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
-'''
-- Allows you to get router facts change to an IOS-XR device
-- python get_facts.py -ip [ip address]
-'''
+##############################################################
+# Learning Module: Introducation to Napalm
+# Author: Stuart Clark <stuaclar@cisco.com>
+#
+#
+# Allows you to get router facts change to an IOS-XR device
+# python get_facts.py -ip [ip address]
+##############################################################
 
 from napalm_base import get_network_driver
 import argparse
@@ -20,9 +24,9 @@ device = driver(username='cisco',
                 hostname=device_ip)
 
 device.open()
+print 'Napalm Is Running........'
 router_dic = device.get_facts()
 
-# print router_dic
 
 for i in router_dic:
    if type(router_dic[i]) == list:

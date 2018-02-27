@@ -1,6 +1,15 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+##############################################################
+# Learning Module: Introducation to Napalm
+# Author: Stuart Clark <stuaclar@cisco.com>
 #
 #
+# Allows you to validate configuration/settigs from an IOS-XR device
+# python get_facts.py -ip [ip address]
+##############################################################
+
+
 from napalm_base import get_network_driver
 from pprint import pprint
 from datetime import datetime
@@ -18,6 +27,7 @@ device = driver(username='vagrant',
                 hostname=device_ip)
 
 device.open()
+print 'Napalm Is Running........'
 
 
 print str(datetime.now()) + " Gathering Information from {}" .format(device_ip)

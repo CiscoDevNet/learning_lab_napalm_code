@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
-'''
-- Allows you to send sample change to an IOS-XR device
-- If changes are required these will be printed and deployed
-- If no changes are required a message will be printed
-- User will be prompted to enter 'COMMIT' or 'Hit Enter' to abort
-- If changes are deployed user will be prompted to enter 'ROLLBACK' to revert the change or 'Hit Enter' to keep changes
+##############################################################
+# Learning Module: Introducation to Napalm
+# Author: Stuart Clark <stuaclar@cisco.com>
+#
+#
+# Allows you to replace and rollback configurations to an IOS-XR device
+# python get_facts.py -ip [ip address]
+##############################################################
 
-'''
 
 from napalm_base import get_network_driver
 import sys
