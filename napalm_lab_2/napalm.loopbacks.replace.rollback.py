@@ -6,7 +6,7 @@
 #
 #
 # Allows you to replace and rollback configurations to an IOS-XR device
-# python get_facts.py -ip [ip address]
+# python napalm.loopbacks.replace.rollback.py  -ip [ip address]
 ##############################################################
 
 

@@ -6,7 +6,7 @@
 #
 #
 # Allows you to replace configurations to an IOS-XR device
-# python get_facts.py -ip [ip address]
+# python napalm.replace.loopbacks.py  -ip [ip address]
 ##############################################################
 
 from napalm_base import get_network_driver

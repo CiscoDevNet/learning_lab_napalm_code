@@ -6,7 +6,7 @@
 #
 #
 # Allows you to validate configuration/settigs from an IOS-XR device
-# python get_facts.py -ip [ip address]
+# python validate_script.py -ip [ip address]
 ##############################################################
 
 
@@ -20,10 +20,10 @@ parser.add_argument("-ip", "--router_ip", help="Enter device ip address")
 args = parser.parse_args()
 device_ip = args.router_ip
 
-driver = get_network_driver('ios')
+driver = get_network_driver('iosxr')
 device = driver(username='vagrant',
                 password='vagrant',
-                optional_args={'port':2222},
+                optional_args={'port':2221},
                 hostname=device_ip)
 
 device.open()
@@ -31,4 +31,4 @@ print 'Napalm Is Running........'
 
 
 print str(datetime.now()) + " Gathering Information from {}" .format(device_ip)
-pprint(device.compliance_report("validate_xe.yml"))
+pprint(device.compliance_report("validate-iosxr.yml"))

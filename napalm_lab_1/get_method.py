@@ -6,7 +6,7 @@
 #
 #
 # Allows you to fetch the 'getters' from an IOS-XR device
-# python get_facts.py -ip [ip address]
+# python get_method.py -ip [ip address]
 ##############################################################
 
 import json

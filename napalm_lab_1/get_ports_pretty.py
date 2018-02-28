@@ -6,7 +6,7 @@
 #
 #
 # Allows you to get router ports and errors from an IOS-XR device
-# python get_facts.py -ip [ip address]
+# python get_ports_pretty -ip [ip address]
 ##############################################################
 
 
