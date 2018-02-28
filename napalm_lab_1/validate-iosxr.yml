@@ -11,9 +11,9 @@
     os_version: 6.1.2
 
 - get_interfaces_ip:
-    TenGigE0/0/0/0:
+    MgmtEth0/RP0/CPU0/0:
         ipv4:
-            192.168.1.1:
+            10.0.2.15:
                 prefix_length: 24
             _mode: strict
 
