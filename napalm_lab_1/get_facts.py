@@ -24,7 +24,7 @@ device = driver(username='cisco',
                 hostname=device_ip)
 
 device.open()
-print 'Napalm Is Running........'
+print ('Napalm Is Running........')
 router_dic = device.get_facts()
 
 
@@ -37,6 +37,3 @@ for i in router_dic:
 
 
 device.close()
-
-
-
