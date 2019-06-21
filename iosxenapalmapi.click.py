@@ -1,6 +1,7 @@
 import napalm
 import click
 import json
+from jinja_helper import template_config
 
 
 class iosxenapalmapi(object):
@@ -128,6 +129,32 @@ class iosxenapalmapi(object):
             self.connection.discard_config()
             self.disconnect()
 
+    def merge_template(self):
+        # print(template_config())
+        self.connect()
+        facts = self.connection.load_merge_candidate(config=template_config())
+        print('\nDiff:')
+        diff = self.connection.compare_config()
+        print(diff)
+        if len(diff) < 1:
+            print('\nNo Changes Required Closing...')
+            self.connection.discard_config()
+            self.disconnect()
+            exit()
+
+        try:
+            choice = input("\nWould you like to commit these changes? [yN]: ")
+        except NameError:
+            choice = input("\nWould you like to commit these changes? [yN]: ")
+        if choice == 'y':
+            print('Committing ...')
+            self.connection.commit_config()
+
+        else:
+            print('Discarding ...')
+            self.connection.discard_config()
+            self.disconnect()
+
 # hostname, username, password
 # device = iosxenapalmapi("127.0.0.1", "vagrant", "vagrant")
 device = iosxenapalmapi("sbx-iosxr-mgmt.cisco.com", "admin", "C1sco12345")
@@ -167,6 +194,12 @@ def merge():
     click.echo(merge)
 
 @click.command()
+def template():
+    click.secho("Merge Loopback Interfaces via Template")
+    merge_template = json.dumps(device.merge_template(), sort_keys=True, indent=4)
+    click.echo(template)
+
+@click.command()
 def replace():
     click.secho("Replace Loopback Interfaces")
     replace_loopbacks = json.dumps(device.replace_loopbacks(), sort_keys=True, indent=4)
@@ -185,6 +218,7 @@ cli.add_command(interfaces_ip)
 cli.add_command(merge)
 cli.add_command(replace)
 cli.add_command(rollback)
+cli.add_command(template)
 
 if __name__ == "__main__":
     cli()
