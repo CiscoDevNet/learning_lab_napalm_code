@@ -7,3 +7,4 @@ def template_config():
     template = env.get_template('loopback_template.j2')
 
     return(template.render(config_data))
+    

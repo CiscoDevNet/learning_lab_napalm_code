@@ -118,7 +118,7 @@ class iosxenapalmapi(object):
             self.disconnect()
             exit()
 
-        rollback = input("\nWould you like to rollback these changes? [yN]: ")
+        choice = input("\nWould you like to rollback these changes? [yN]: ")
         if choice == 'y':
             print('Reverting ...')
             self.connection.rollback()
