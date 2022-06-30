@@ -1,2 +1,2 @@
-napalm==2.4.0
+napalm==3.4.1
 click==6.7
