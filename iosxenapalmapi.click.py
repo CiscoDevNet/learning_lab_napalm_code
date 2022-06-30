@@ -7,7 +7,7 @@ from jinja_helper import template_config
 class iosxenapalmapi(object):
     def __init__(self, hostname=None, username=None, password=None, optional_args=None):
         driver = napalm.get_network_driver('ios-xr')
-        self.connection = driver(hostname=hostname, username=username, password=password, optional_args={'port':8181})
+        self.connection = driver(hostname=hostname, username=username, password=password, optional_args={'port':22})
 
 
     def connect(self):
@@ -157,7 +157,7 @@ class iosxenapalmapi(object):
 
 # hostname, username, password
 # device = iosxenapalmapi("127.0.0.1", "vagrant", "vagrant")
-device = iosxenapalmapi("sbx-iosxr-mgmt.cisco.com", "admin", "C1sco12345")
+device = iosxenapalmapi("sandbox-iosxr-1.cisco.com", "admin", "C1sco12345")
 
 @click.group()
 def cli():
